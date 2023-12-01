@@ -1,5 +1,5 @@
 //import modules
-const {parse} = require('csv-parser');
+const {parse} = require('csv-parse');
 const fs  = require('fs');
 
 
@@ -9,6 +9,10 @@ const results = [];
 
 //Set up a readable stream from the 'kepler_data.csv' file
 fs.createReadStream('kepler_data.csv')
+         .pipe(parse({
+            comment : '#',
+            columns : true,
+         }))
 
      //  Attach event listeners to the stream ,The data event provides chunks of data, and we are pushing these chunks directly into the results array.
         .on('data' , (data) =>{
