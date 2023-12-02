@@ -31,7 +31,10 @@ fs.createReadStream('kepler_data.csv')
         })
         //end event: Triggered when the stream has been fully read.
         .on('end' , ()=>{
+         console.log(habiTablePlanets.map((planet) => {
+            return planet['kepler_name'];
+         }));
          console.log(`${habiTablePlanets.length} habitable planets found!`);
-         console.log(' Done');
+       
         })
  
