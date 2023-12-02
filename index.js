@@ -6,6 +6,7 @@ const fs  = require('fs');
 //Create an empty array to store the parsed CSV data
 const habiTablePlanets = [];
 
+// Function to check if a planet is habitable based on certain criteria
 function isHabiTablePlanets(planet){
  return planet['koi_disposition'] == 'CONFIRMED'
  && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11
